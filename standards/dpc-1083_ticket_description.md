@@ -49,7 +49,7 @@ Document that platform-level monitoring metrics and compliance must be reported 
 
 Publication
 Verify that the completed Section 12 page is published under the correct parent page in the Data Platform Confluence space and is accessible to all relevant teams at 
-[Draft Section 12: Monitoring & Alerting Standards](https://waka-kotahi.atlassian.net/wiki/x/CYA1-/)
+[DIP - Monitoring & Alerting Standards](https://waka-kotahi.atlassian.net/wiki/x/IQCX-/)
 
 🚫 Out of Scope
 Authoring the detailed content of individual runbooks (runbook existence is in-scope; their detailed step-by-step content is not).
