@@ -4,6 +4,9 @@ const http = require('http');
 const { URL } = require('url');
 
 const PORT = Number(process.env.PORT || 8787);
+const IS_CODESPACES = String(process.env.CODESPACES || '').toLowerCase() === 'true';
+const DEFAULT_BIND_HOST = IS_CODESPACES ? '0.0.0.0' : '127.0.0.1';
+const BIND_HOST = String(process.env.DBX_PROXY_BIND_HOST || DEFAULT_BIND_HOST).trim();
 const DBX_WORKSPACE_URL = (process.env.DATABRICKS_WORKSPACE_URL ||
   'https://adb-3240274369437577.17.azuredatabricks.net').replace(/\/+$/, '');
 const DBX_SERVED_MODELS = (process.env.DATABRICKS_SERVED_MODELS ||
@@ -592,6 +595,6 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, '127.0.0.1', () => {
-  process.stdout.write(`dbx-anthropic-proxy listening on http://127.0.0.1:${PORT}\n`);
+server.listen(PORT, BIND_HOST, () => {
+  process.stdout.write(`dbx-anthropic-proxy listening on http://${BIND_HOST}:${PORT}\n`);
 });
